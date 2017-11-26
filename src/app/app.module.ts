@@ -19,6 +19,13 @@ import { RouterModule } from '@angular/router';
 //Material modules
 import { MatButtonModule } from '@angular/material';
 
+//firebase configuration
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+
+//to interact with the firebase db
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'books', component: BooksComponent},
@@ -44,7 +51,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     MatButtonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
