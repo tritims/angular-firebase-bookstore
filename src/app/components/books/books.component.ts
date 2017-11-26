@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-books',
@@ -8,18 +7,15 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
+  allBooks:any;
 
-  books: Observable<any[]>;
-  allBooks: any;
-
-  constructor(private db: AngularFireDatabase) { 
-    this.books = db.list('/books').valueChanges();
-    this.books.subscribe(books =>{
-      this.allBooks = books;
-    })
-  }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.firebaseService.getBooks()
+      .subscribe(data => {
+        this.allBooks = data;
+      })
   }
 
 }
