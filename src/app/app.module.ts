@@ -15,6 +15,10 @@ import { FooterComponent } from './components/footer/footer.component';
 //ROUTES
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
+
+//Material modules
+import { MatButtonModule } from '@angular/material';
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'books', component: BooksComponent},
@@ -39,6 +43,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatButtonModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
