@@ -17,7 +17,20 @@ import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 //Material modules
-import { MatButtonModule } from '@angular/material';
+import { 
+  MatButtonModule,
+  MatCheckboxModule,
+  MatCardModule, 
+  MatGridListModule, 
+  MatInputModule, 
+  MatDatepickerModule, 
+  MatNativeDateModule, 
+  MatToolbarModule, 
+  MatProgressSpinnerModule,
+  MatTabsModule,
+  MatListModule,
+  MatIconModule
+ } from '@angular/material';
 
 //firebase configuration
 import { AngularFireModule } from 'angularfire2';
@@ -54,6 +67,17 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule, 
+    MatGridListModule, 
+    MatInputModule, 
+    MatDatepickerModule, 
+    MatNativeDateModule, 
+    MatToolbarModule, 
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatListModule,
+    MatIconModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule

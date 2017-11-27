@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  favouriteBooks: any;
+  unreadBooks: any;
+
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+
+    this.firebaseService.getFavouriteBooks()
+      .subscribe(data => {
+        console.log(data);
+        this.favouriteBooks = data;
+      })
+
+    this.firebaseService.getUnreadBooks()
+      .subscribe(data =>{
+        this.unreadBooks = data;
+      })
   }
 
 }
